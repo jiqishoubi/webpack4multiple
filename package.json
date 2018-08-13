@@ -1,0 +1,23 @@
+{
+  "name": "webpack4multiple",
+  "version": "1.0.0",
+  "description": "Webpack4MultiplePages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiqishoubi/webpack4multiple.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiqishoubi/webpack4multiple/issues"
+  },
+  "homepage": "https://github.com/jiqishoubi/webpack4multiple#readme",
+  "devDependencies": {
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  }
+}
