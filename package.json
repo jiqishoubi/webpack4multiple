@@ -4,7 +4,9 @@
   "description": "Webpack4MultiplePages",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=dev && webpack-dev-server --config ./config/webpack.config.dev.js --open",
+    "build": "cross-env NODE_ENV=build && webpack --config ./config/webpack.config.build.js -p"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,19 @@
   },
   "homepage": "https://github.com/jiqishoubi/webpack4multiple#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "style-loader": "^0.22.1",
+    "url-loader": "^1.1.0",
     "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-merge": "^4.1.4"
   }
 }
