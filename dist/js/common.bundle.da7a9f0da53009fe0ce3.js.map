@@ -1,0 +1,1 @@
+{"version":3,"file":"js/common.bundle.da7a9f0da53009fe0ce3.js","sources":["webpack:///./src/static/js/lalala.js"],"sourcesContent":["let obj={\r\n    name:\"tom\"\r\n}\r\n\r\nexport default obj;"],"mappings":"AACA","sourceRoot":""}

@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],[,function(e,n,o){"use strict";Object.defineProperty(n,"__esModule",{value:!0});n.default={name:"tom"}}]]);
+//# sourceMappingURL=common.bundle.da7a9f0da53009fe0ce3.js.map

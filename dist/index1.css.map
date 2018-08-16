@@ -1,0 +1,1 @@
+{"version":3,"file":"index1.css","sources":["webpack:///./src/static/css/base.css"],"sourcesContent":["/*������ʽ ��ʽ����*/\r\n\r\nbody {\r\n    font-size: 14px;\r\n    font-family: \"Microsoft Yahei\", sans-serif;\r\n    color: #666666;\r\n    background-color: red;\r\n}"],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;","sourceRoot":""}
