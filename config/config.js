@@ -20,8 +20,7 @@ console.log(htmlsNameArr)
 
 module.exports = {
     htmlsNameArr: htmlsNameArr,
-    cssPublicPath: '../',
-    imgOutputPath: "../dist/static/images",
-    cssOutputPath: "./css/styles.css",
-    devServerOutputPath: "../dist"
+    cssPublicPath: './dist/css', //单独打包的css放哪？？？？？？？？？？？？？？？？
+    imgOutputPath: "../dist/images", //图片输出路径
+    devServerOutputPath: "../dist" //服务根目录
 }

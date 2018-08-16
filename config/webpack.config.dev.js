@@ -15,7 +15,7 @@ module.exports = webpackMerge.smart(webpackBase, {
     ],
     // 配置 webpack-dev-server
     devServer: {
-        contentBase: config.devServerOutputPath, // 项目根目录
+        contentBase: config.devServerOutputPath, // 服务根目录
         watchContentBase: true, //监控目录下的文件，默认false
         port: 6789,
         host: '0.0.0.0', //服务器外部可访问

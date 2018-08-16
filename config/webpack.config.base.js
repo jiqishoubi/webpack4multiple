@@ -1,5 +1,6 @@
 let path = require("path");
 let HTMLWebpackPlugin = require("html-webpack-plugin");
+let CleanWebpackPlugin = require("clean-webpack-plugin"); //清理dist
 let MiniCssExtractPlugin = require("mini-css-extract-plugin"); //分离css
 
 let config = require("./config.js");
@@ -15,7 +16,7 @@ config.htmlsNameArr.forEach(function (htmlName) {
         hash: true,
         //chunks 选项的作用主要是针对多入口(entry)文件。当你有多个入口文件的时候，对应就会生成多个编译后的 js 文件。那么 chunks 选项就可以决定是否都使用这些生成的 js 文件。
         //chunks 默认会在生成的 html 文件中引用所有的 js 文件，当然你也可以指定引入哪些特定的文件。
-        chunks: [htmlName]
+        chunks: [htmlName,"vendor"]
     });
     HTMLPluginsArr.push(htmlPlugin);
 
@@ -26,29 +27,31 @@ module.exports = {
     mode: "none",
     entry: Entries,
     output: {
-        filename: "js/[name].bundle.[chunkhash].js", 
-        path: path.resolve(__dirname, "../dist")
+        filename: "js/[name].bundle.[chunkhash].js",
+        path: path.resolve(__dirname, "../dist") //也是各种插件的默认出口
     },
     module: {
         rules: [
-            { 
-                test: /\.css$/,
-                exclude: /node_modules/,
-                use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader' }
-                ]
-            },
             // { 
             //     test: /\.css$/,
             //     exclude: /node_modules/,
             //     use: [
-            //         // {
-            //         //     loader: MiniCssExtractPlugin.loader,
-            //         // },
-            //         "css-loader"
+            //         { loader: 'style-loader' },
+            //         { loader: 'css-loader' }
             //     ]
             // },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [{
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: config.cssPublicPath
+                        }
+                    },
+                    "css-loader"
+                ]
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -81,10 +84,14 @@ module.exports = {
         ]
     },
     plugins: [
-        ...HTMLPluginsArr // 自动生成 HTML 插件
-        // new MiniCssExtractPlugin({
-        //     filename: "[name].css",
-        //     chunkFilename: "[id].css"
-        // })
+        ...HTMLPluginsArr, // 自动生成 HTML 插件
+        new CleanWebpackPlugin(["dist"], {
+            root: path.resolve(__dirname, "../"), //设置项目根目录
+            // exclude: [ 'files', 'to', 'ignore' ],
+        }),
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        })
     ]
 }
